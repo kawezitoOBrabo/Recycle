@@ -22,79 +22,87 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Form(
-            key: formKey,
-            child: ListView(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const SizedBox(height: 16),
-                    Image.asset(
-                      "assets/logo.png",
-                      color: Color.fromARGB(199, 71, 224, 97),
-                      height: 80,
-                    ),
-                    Text(
-                      'ReCycle',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
+        body: Container(
+          decoration: BoxDecoration(
+            color: Color(0xffC8E6C9),
+            image: DecorationImage(
+              image: AssetImage("assets/background.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(16),
+            child: Form(
+              key: formKey,
+              child: ListView(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 16),
+                      Image.asset(
+                        "assets/logo.png",
                         color: Color.fromARGB(199, 71, 224, 97),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
+                        height: 80,
                       ),
-                    ),
-                    const SizedBox(height: 16),
+                      Text(
+                        'ReCycle',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color.fromARGB(199, 71, 224, 97),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
 
-                    const SizedBox(height: 32),
-                    Material(
-                      elevation: 20,
-                      shadowColor: Colors.black38,
-                      child: TextFormField(
-                        controller: emailController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Campo e-mail obrigatório.';
-                          } else if (value!.contains('@')) {
-                            return null;
-                          } else {
-                            return 'Você precisa de um e-mail válido.';
-                          }
-                        },
-                        cursorColor: const Color(0xFF10397B),
-                        decoration: buildInputDecoration(
-                          'E-mail',
-                          Icons.mail_outline_outlined,
+                      const SizedBox(height: 32),
+                      Material(
+                        elevation: 20,
+                        shadowColor: Colors.black38,
+                        child: TextFormField(
+                          controller: emailController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Campo e-mail obrigatório.';
+                            } else if (value!.contains('@')) {
+                              return null;
+                            } else {
+                              return 'Você precisa de um e-mail válido.';
+                            }
+                          },
+                          cursorColor: Color.fromARGB(199, 71, 224, 97),
+                          decoration: buildInputDecoration(
+                            'E-mail',
+                            Icons.mail_outline_outlined,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    Material(
-                      elevation: 20,
-                      shadowColor: Colors.black38,
-                      child: TextFormField(
-                        controller: telefoneController,
-                        obscureText: true,
-                        validator: (value) {
-                          if (value!.length >= 6) {
-                            return null;
-                          } else {
-                            return 'Você precisa de uma senha válida.';
-                          }
-                        },
-                        cursorColor: const Color(0xFF10397B),
-                        decoration: buildInputDecoration(
-                          'Telefone',
-                          Icons.phone,
+                      const SizedBox(height: 16),
+                      Material(
+                        elevation: 20,
+                        shadowColor: Colors.black38,
+                        child: TextFormField(
+                          controller: telefoneController,
+                          obscureText: true,
+                          validator: (value) {
+                            if (value!.length >= 6) {
+                              return null;
+                            } else {
+                              return 'Você precisa de uma senha válida.';
+                            }
+                          },
+                          cursorColor: Color.fromARGB(199, 71, 224, 97),
+                          decoration: buildInputDecoration(
+                            'Telefone',
+                            Icons.phone,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    Material(
-                      elevation: 20,
-                      shadowColor: Colors.black38,
+                      const SizedBox(height: 16),
+                      Material(
+                        elevation: 20,
+                        shadowColor: Colors.black38,
                         child: TextFormField(
                           controller: cepController,
                           obscureText: false,
@@ -105,93 +113,98 @@ class _LoginPageState extends State<LoginPage> {
                               return 'Você precisa de uma senha válida.';
                             }
                           },
-                          cursorColor: const Color(0xFF10397B),
+                          cursorColor: Color.fromARGB(199, 71, 224, 97),
                           decoration: buildInputDecoration(
                             'Cep',
                             Icons.location_on,
                           ),
                         ),
-                      
-                    ),
+                      ),
 
-                    const SizedBox(height: 16),
-                    Material(
-                      elevation: 20,
-                      shadowColor: Colors.black38,
-                      child: TextFormField(
-                        controller: senhaController,
-                        obscureText: true,
-                        validator: (value) {
-                          if (value!.length >= 6) {
-                            return null;
-                          } else {
-                            return 'Você precisa de uma senha válida.';
-                          }
+                      const SizedBox(height: 16),
+                      Material(
+                        elevation: 20,
+                        shadowColor: Colors.black38,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: TextFormField(
+                            controller: senhaController,
+                            obscureText: true,
+                            validator: (value) {
+                              if (value!.length >= 6) {
+                                return null;
+                              } else {
+                                return 'Você precisa de uma senha válida.';
+                              }
+                            },
+                            cursorColor: Color.fromARGB(199, 71, 224, 97),
+                            decoration: buildInputDecoration(
+                              'Senha',
+                              Icons.lock_outline,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      // Spacer(),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Validar os campos de e-mail e senha
                         },
-                        cursorColor: const Color(0xFF10397B),
-                        decoration: buildInputDecoration(
-                          'Senha',
-                          Icons.lock_outline,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(199, 71, 224, 97),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 32,
+                          ),
+                          elevation: 4,
+                        ),
+                        child: const Text(
+                          'Entrar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 32),
-                    // Spacer(),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Validar os campos de e-mail e senha
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(199, 71, 224, 97),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 32,
-                        ),
-                        elevation: 4,
+                      SizedBox(
+                        height: 24,
                       ),
-                      child: const Text(
-                        'Entrar',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                "já tem uma conta?",
+                              ),
+                              Image.asset("assets/google.png"),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 24,
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Faça login",
+                              ),
+                              Image.asset("assets/facebook.png"),
+                            ],
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              "já tem uma conta?",
-                            ),
-                            Image.asset("assets/google.png"),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 24,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "Faça login",
-                            ),
-                            Image.asset("assets/facebook.png"),
-                          ],
-                        ),
-                      ],
-                    ),
-
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -203,8 +216,7 @@ class _LoginPageState extends State<LoginPage> {
     return InputDecoration(
       suffixIcon: Icon(iconData),
       labelText: label,
-      filled: true,
-      fillColor: Colors.white,
+      filled: false,
       floatingLabelStyle: const TextStyle(
         color: Color.fromARGB(197, 21, 126, 38),
       ),
@@ -228,16 +240,4 @@ class _LoginPageState extends State<LoginPage> {
 
 /*
 
-Container(
-        decoration: BoxDecoration(
-          color: Color(0xffC8E6C9),
-          image: DecorationImage(
-            image: AssetImage("assets/background.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Center(
-          child: Text("Olá mundo"),
-        ),
-      ),
 */
