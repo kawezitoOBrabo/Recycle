@@ -95,8 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                     Material(
                       elevation: 20,
                       shadowColor: Colors.black38,
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.cell,
                         child: TextFormField(
                           controller: cepController,
                           obscureText: false,
@@ -113,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                             Icons.location_on,
                           ),
                         ),
-                      ),
+                      
                     ),
 
                     const SizedBox(height: 16),
